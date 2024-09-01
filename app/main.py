@@ -3,7 +3,7 @@ load_dotenv()
 
 from fastapi import FastAPI 
 from app.core.config import settings 
-from app.api.v1.qa_routes import router as qa_router
+from app.api.v1.qna_routes import router as qa_router
 
 def create_app() -> FastAPI:
     app = FastAPI()
