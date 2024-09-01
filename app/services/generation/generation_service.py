@@ -9,6 +9,7 @@ client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
+#generates an answer to a question based on the provided document chunks using the OpenAI API
 async def generate_answer(chunks: List[str], question: str) -> str:
     try:
         context = " ".join(chunks)

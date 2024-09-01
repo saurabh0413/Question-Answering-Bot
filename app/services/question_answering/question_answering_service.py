@@ -7,7 +7,7 @@ from typing import List, Dict, Union
 import json
 import logging
 
-
+#service for processing questions and documents to provide answers based on the content of the document
 class QuestionAnsweringService:
     async def process_qa(self, questions_content: bytes, document_content: bytes) -> List[Dict[str, str]]:
         try:
@@ -34,6 +34,7 @@ class QuestionAnsweringService:
             logging.error(f"Error processing document chunks: {e}")
             raise
 
+        # generate answers for each question
         answers = []
         for question in questions:
             try:
@@ -46,6 +47,7 @@ class QuestionAnsweringService:
 
         return answers
 
+    #splits the document text into chunks of specified size
     def split_document(self, document: str, chunk_size: int = 1000) -> List[str]:
        
         words = document.split()
