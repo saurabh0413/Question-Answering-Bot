@@ -31,9 +31,15 @@ OPENAI_API_KEY="your_openai_api_key"
 
 ```bash
 uvicorn app.main:app --reload
+
 ```
 
-
+### 5. To test api  
+```bash
+1. server will be running at -> http://127.0.0.1:8000/docs
+2. Upload your questions and document file
+3. Click on execute to get answers in response. 
+```
 ### Final Notes:
 
 - Replace `your_openai_api_key` with your actual API key.
