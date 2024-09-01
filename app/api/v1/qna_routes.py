@@ -1,4 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
+from app.services.question_answering.question_answering_service import QuestionAnsweringService
 
 router = APIRouter()
 
@@ -15,5 +16,6 @@ async def answer_questions(questions_file: UploadFile = File(...), document_file
     questions_content = await questions_file.read()
     document_content = await document_file.read()
 
-    return "check"
-  
+    answers = await service.process_qa(questions_content, document_content)
+    return {"qa_pairs": answers}
+
